@@ -1,13 +1,18 @@
 import React from 'react';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-
-import dynamic from 'next/dynamic';
-
-const Heading = dynamic(() => import('../components/Heading'));
+import Heading from '../components/Heading';
+import Image from 'next/image';
+import picture from '../public/minion.jpg';
 
 export default function Route({}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <Heading text='This is another page' />
+    <div>
+      <Heading text='This is another page' />
+      <Image
+        src={picture}
+        alt='Picture alt'
+      />
+    </div>
   );
 }
 
